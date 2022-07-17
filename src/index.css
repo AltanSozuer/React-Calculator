@@ -1,0 +1,18 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 70px 70px 70px 70px;
+  align-content: center
+}
+
+.grid-item {
+  display: inline-grid;
+}
+
+.calc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+
