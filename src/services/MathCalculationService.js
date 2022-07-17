@@ -1,14 +1,5 @@
 
-const OperatorASCII = {
-    '+': 43,
-    '-': 45,
-    '*': 42,
-    '/': 47,
-    '%': 37,
-    '.': 46,
-    ',': 44
-}
-
+import {OperatorASCII} from "../constants/OperatorASCII";
 /**
  * 
  * @class MathCalculationService
@@ -21,9 +12,9 @@ class MathCalculationService{
     
     /**
      * 
-     * @param {*} calculation
+     * @param {String} calculation - given calculation string EX =>  2 + 3 / 4
+     * @throws {Error} - When given calculation is not string
      * @returns {Number} - result of given calculation
-     * @static
      * @async
      */
     async stack(calculation = "0"){
@@ -47,9 +38,9 @@ class MathCalculationService{
     }
 
     /**
-     * 
+     * extract all numbers and operators
      * @param {String} calculation 
-     * @returns
+     * @returns {Object} - Object that contains array of numbers and array of operators that are in given calculation 
      * @async 
      * @private
      */
@@ -75,6 +66,12 @@ class MathCalculationService{
         return {numArr , operators};
     }
 
+    /**
+     * 
+     * @param {Number} number
+     * @throws {Error} - When incoming number is not number 
+     * @returns {Number} - itself (if it is validated)
+     */
     async negate(number){
         const parsedNum = validateNumber(number);
         return (parsedNum * -1);
